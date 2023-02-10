@@ -17,8 +17,8 @@
 		/* For each item in article list append to a string and when
 		 the string is 34 items long start on an new one*/
 		article_list.forEach((item) => {
-			if (counter == 33) {
-				counter = 0;
+			if (counter == 32) {
+				counter = 1;
 				string_list.push(new_string.slice(0, -1));
 				new_string = item + '|';
 			} else {
