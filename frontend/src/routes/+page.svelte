@@ -1,4 +1,6 @@
 <script>
+	import { element } from 'svelte/internal';
+
 	// Import components
 	import StringItem from './string_item.svelte';
 
@@ -10,7 +12,16 @@
 	function handleButton() {
 		/* Take the text in the article field and split it by space and | 
 		to get list with all article numbers */
-		let article_list = input.split(/[\s|]+/);
+		let input_list = input.split(/[\s|]+/);
+
+		/* Purge duplicates */
+		let article_list = [];
+		input_list.forEach((element) => {
+			if (!article_list.includes(element)) {
+				article_list.push(element);
+			}
+		});
+
 		// Create variables for string creation
 		let new_string = '';
 		let counter = 0;
