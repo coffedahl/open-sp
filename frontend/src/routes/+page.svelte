@@ -1,9 +1,8 @@
 <script>
-	import { element } from 'svelte/internal';
-
 	// Import components
 	import StringItem from './string_item.svelte';
 
+	let attack_clones = false;
 	// Create variables
 	var string_list = [];
 	var input;
@@ -11,18 +10,22 @@
 	// Function for handling the process button
 	function handleButton() {
 		// Reset stringlist
-		string_list = []
+		string_list = [];
 		/* Take the text in the article field and split it by space and | 
 		to get list with all article numbers */
 		let input_list = input.split(/[\s|]+/);
 
 		/* Purge duplicates */
 		let article_list = [];
-		input_list.forEach((element) => {
-			if (!article_list.includes(element)) {
-				article_list.push(element);
-			}
-		});
+		if (attack_clones) {
+			input_list.forEach((element) => {
+				if (!article_list.includes(element)) {
+					article_list.push(element);
+				}
+			});
+		}else{
+			article_list = input_list
+		}
 
 		// Create variables for string creation
 		let new_string = '';
@@ -48,8 +51,10 @@
 
 <div class="main">
 	<div class="input">
-		<input bind:value={input} type="text" />
+		<input class="text" bind:value={input} type="text" />
 		<button on:click={handleButton}>Submit</button>
+		<p>Attack Clones?</p>
+		<input class="check" bind:checked={attack_clones} type="checkbox" />
 	</div>
 	{#each string_list as string}
 		<StringItem {string} />
@@ -66,14 +71,24 @@
 	}
 	.input {
 		margin-top: 5vh;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 60vw;
 	}
-	.input input {
+	.input .text {
 		height: 5vh;
 		font-size: large;
-		width: 60vw;
+		width: 60%;
 		border-radius: 2em;
 		padding-left: 1em;
 		border: 1px solid black;
+	}
+	.input input {
+		height: 5vh;
+		width: 5vh;
+		border-radius: 2em;
+		font-size: large;
 	}
 	.input button {
 		background-color: #5e9f1a;
@@ -81,5 +96,6 @@
 		border-radius: 2em;
 		border: none;
 		padding: 1em 2em;
+		width: 20%;
 	}
 </style>
