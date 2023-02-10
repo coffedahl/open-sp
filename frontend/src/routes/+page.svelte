@@ -18,7 +18,7 @@
 		 the string is 34 items long start on an new one*/
 		article_list.forEach((item) => {
 			if (counter == 31) {
-				counter = 0;
+				counter = 1;
 				string_list.push(new_string.slice(0, -1));
 				new_string = item + '|';
 			} else {
