@@ -98,4 +98,7 @@
 		padding: 1em 2em;
 		width: 20%;
 	}
+	.input button:hover{
+		background-color: #3b6111;
+	}
 </style>
