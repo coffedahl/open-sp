@@ -45,7 +45,6 @@
 		padding: 0 8vw;
     }
 	.nav{
-		display: block;
 		width: 20vw;
 		height: 100%;
 	}
