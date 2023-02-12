@@ -1,4 +1,4 @@
-<div>
+<div class="main">
     <h1>Tutorial</h1>
     <p>
         To use the page you go to team and go to the "Prisjusteringer" channel and then you can copy strait over all the
