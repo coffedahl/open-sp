@@ -92,9 +92,8 @@
 		width: 80%;
 	}
 	.input input {
-		height: 5vh;
-		width: 5vh;
-		border-radius: 0.5em;
+		height: 4.5vh;
+		width: 4.5vh;
 		font-size: large;
 	}
 	.input button {
