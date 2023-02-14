@@ -23,8 +23,8 @@
 					article_list.push(element);
 				}
 			});
-		}else{
-			article_list = input_list
+		} else {
+			article_list = input_list;
 		}
 
 		// Create variables for string creation
@@ -51,8 +51,10 @@
 
 <div class="main">
 	<div class="input">
-		<input class="text" bind:value={input} type="text" />
-		<button on:click={handleButton}>Submit</button>
+		<div class="text-field">
+			<input class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
+			<button on:click={handleButton}><img src="%sveltekit.assets%/icons8-right-arrow-50.png" alt=""></button>
+		</div>
 		<p>Attack Clones?</p>
 		<input class="check" bind:checked={attack_clones} type="checkbox" />
 	</div>
@@ -77,27 +79,36 @@
 	}
 	.input .text {
 		height: 5vh;
-		font-size: large;
-		width: 60%;
-		border-radius: 2em;
-		padding-left: 1em;
-		border: 1px solid black;
+		font-size: 1em;
+		border-radius: 0.5em;
+		padding-left: 0.8em;
+		border: 1.5px solid #d2d8dd;
+		width: 80%;
+	}
+	.text-field {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 80%;
 	}
 	.input input {
 		height: 5vh;
 		width: 5vh;
-		border-radius: 2em;
+		border-radius: 0.5em;
 		font-size: large;
 	}
 	.input button {
-		background-color: #5e9f1a;
+		background-color: #0066b5;
 		color: white;
-		border-radius: 2em;
+		border-radius: 0.5em;
 		border: none;
-		padding: 1em 2em;
-		width: 20%;
+		aspect-ratio: 1/1;
+		height: 5vh;
 	}
-	.input button:hover{
-		background-color: #3b6111;
+	.input button:hover {
+		background-color: #004982;
+	}
+	.input button img{
+		width: 5vh;
 	}
 </style>
