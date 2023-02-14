@@ -53,7 +53,7 @@
 	<div class="input">
 		<div class="text-field">
 			<input class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
-			<button on:click={handleButton}><img src="%sveltekit.assets%/icons8-right-arrow-50.png" alt=""></button>
+			<button on:click={handleButton}><img src="/icons8-right-arrow-50.png" alt=""></button>
 		</div>
 		<p>Attack Clones?</p>
 		<input class="check" bind:checked={attack_clones} type="checkbox" />
@@ -98,6 +98,9 @@
 		font-size: large;
 	}
 	.input button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		background-color: #0066b5;
 		color: white;
 		border-radius: 0.5em;
@@ -109,6 +112,6 @@
 		background-color: #004982;
 	}
 	.input button img{
-		width: 5vh;
+		width: 3.5vh;
 	}
 </style>
