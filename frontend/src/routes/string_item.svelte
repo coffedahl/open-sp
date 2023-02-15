@@ -1,12 +1,32 @@
 <script>
 	// Import copy
 	import { copy } from 'svelte-copy';
+	let isCopied = false
 	// Create prop
 	export let string;
+
+	function handleCopy(){
+		isCopied = true;
+	}
+	function handleCheck(){
+		if(isCopied){
+			isCopied = false;
+		}else{
+			isCopied = true;
+		}
+	}
+
 </script>
 
 <div class="string">
-	<button use:copy={string} class="flash">Kopiera</button>
+	<button use:copy={string} on:click={handleClick} class="flash">Kopiera</button>
+	<button>
+		{#if isCopied}
+			<img src="/checked.png" alt="checked-mark"/>
+		{:else}
+			<img src="/unchecked.png" alt="unchecked-mark"/>
+		{/if}
+	</button>
 	<p>{string}</p>
 </div>
 
