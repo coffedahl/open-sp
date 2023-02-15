@@ -82,6 +82,7 @@
 		font-size: 1em;
 		border-radius: 0.5em;
 		padding-left: 0.8em;
+		padding-right: 0.3em;
 		border: 1.5px solid #d2d8dd;
 		width: 80%;
 	}
