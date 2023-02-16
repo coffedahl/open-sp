@@ -1,13 +1,14 @@
 <script>
 	import Navigation from "./navigation.svelte";
-
+	let nav;
+	$: page = nav;
 </script>
 <div class="main">
 	<div class="nav">
-		<Navigation />
+		<Navigation bind:navURL={nav}/>
 	</div>
 	<div class="article">
-		<h1>Tutorial</h1>
+		<h1>{page}</h1>
 		<p>
 			To use the page you go to team and go to the "Prisjusteringer" channel and then you can copy
 			strait over all the new promotional prices.
