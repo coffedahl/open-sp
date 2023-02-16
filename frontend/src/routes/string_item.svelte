@@ -40,7 +40,7 @@
 	.string button {
 		width: 20%;
 		background-color: #f5f5f5;
-		border: none;
+		border: 1px solid #c2c2c2;
 		border-radius: 0.5em;
 		-webkit-animation-duration: 1s;
 		animation-duration: 0.7s;
@@ -83,5 +83,6 @@
 		overflow-x: scroll;
 		border: 1px solid #b3b3b3;
 		border-radius: 0.5em;
+		padding: 0.2em 0.5em;
 	}
 </style>
