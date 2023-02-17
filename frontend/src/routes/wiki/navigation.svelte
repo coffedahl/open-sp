@@ -10,10 +10,10 @@
 </script>
 
 <div class="navigation">
-	<button on:click={() => handleClick('wiki')}>Wiki</button>
-	<button on:click={handleTool}><p>Tools</p>{#if showTools}<p>A</p>{:else}<p>V</p>{/if}</button>
+	<button class="primary" on:click={() => handleClick('wiki')}>Wiki</button>
+	<button class="primary" on:click={handleTool}><p>Tools</p>{#if showTools}<p>A</p>{:else}<p>V</p>{/if}</button>
 	{#if showTools}
-		<button on:click={() => handleClick('price_adjustment')}>Price Adjustment Delim</button>
+		<button class="sub" on:click={() => handleClick('price_adjustment')}>Price Adjustment Delim</button>
 	{/if}
 </div>
 
@@ -29,5 +29,12 @@
 	.navigation button {
 		width: 100%;
 		height: 5vh;
+	}
+	.primary{
+		background-color: #f5f5f5;
+		border: 1px solid #c2c2c2;
+	}
+	.sub{
+		background-color: #c2c2c2;
 	}
 </style>
