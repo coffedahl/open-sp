@@ -15,6 +15,7 @@
 		<a href="/wiki/priceadjustment"><button class="sub">Price Adjustment Delim</button></a>
 		<a href="/wiki/shipmentcorrection"><button class="sub">Shipment correction</button></a>
 	{/if}
+	<a href="/wiki/github"><button class="primary">Github</button></a>
 </div>
 
 <style>
@@ -32,9 +33,10 @@
 	}
 	.primary {
 		background-color: #f5f5f5;
-		border: 1px solid #c2c2c2;
+		border: 1px solid #dedede;
 	}
 	.sub {
-		background-color: #c2c2c2;
+		background-color: #e4e4e4;
+		border: 1px solid #c1c1c1;
 	}
 </style>
