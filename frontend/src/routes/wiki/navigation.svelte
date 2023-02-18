@@ -1,19 +1,18 @@
 <script>
-	export let navURL = 'wiki';
 	let showTools = false;
-    function handleTool(){
-        showTools ? showTools = false : showTools = true;
-    }
-	function handleClick(path) {
-		navURL = path;
+	function handleTool() {
+		showTools ? (showTools = false) : (showTools = true);
 	}
 </script>
 
 <div class="navigation">
-	<button class="primary" on:click={() => handleClick('wiki')}>Wiki</button>
-	<button class="primary" on:click={handleTool}><p>Tools</p>{#if showTools}<p>A</p>{:else}<p>V</p>{/if}</button>
+	<a href="/wiki"><button class="primary">Wiki</button></a>
+	<button class="primary" on:click={handleTool}
+		><p>Tools</p>
+		{#if showTools}<p>A</p>{:else}<p>V</p>{/if}</button
+	>
 	{#if showTools}
-		<button class="sub" on:click={() => handleClick('price_adjustment')}>Price Adjustment Delim</button>
+		<a href="/wiki/priceadjustment"><button class="sub">Price Adjustment Delim</button></a>
 	{/if}
 </div>
 
@@ -30,11 +29,11 @@
 		width: 100%;
 		height: 5vh;
 	}
-	.primary{
+	.primary {
 		background-color: #f5f5f5;
 		border: 1px solid #c2c2c2;
 	}
-	.sub{
+	.sub {
 		background-color: #c2c2c2;
 	}
 </style>
