@@ -15,7 +15,7 @@
 		height: 80vh;
 	}
 	.article h1{
-		padding-top: 5vh;
+		padding-top: 3vh;
 	}
     .article p{
         padding-top: 2vh;
