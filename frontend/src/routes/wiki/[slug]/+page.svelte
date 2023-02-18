@@ -3,7 +3,14 @@
 </script>
 
 <div>
-	<h1>{data.title}</h1>
+    {#if data.title == "shipmentcorrection"}
+        <h1>Shipment Correction</h1>
+    {:else if data.title == "priceadjustment"}
+        <h1>Price Adjustment</h1>
+    {:else}
+        <h1>404 Page not found</h1>
+    {/if}
+
 </div>
 
 <style>
