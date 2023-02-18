@@ -1,6 +1,10 @@
 <header>
 	<div class="title">
-		<h1>Open-SP</h1>
+		<a href="/"><h1>Open-SP</h1></a>
+		<nav class="space-even">
+			<p class="space-even">Tools <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 1024 1024"><path d="M759.2 419.8L697.4 358 512 543.4 326.6 358l-61.8 61.8L512 667z"/></svg></p>
+			<a href="/wiki">Wiki</a>
+		</nav>
 	</div>
 	<div class="deco">
 		<a href="https://www.github.com/coffedahl/kjell-delim">
@@ -19,7 +23,7 @@
 	.title {
 		height: 9vh;
 		display: flex;
-		justify-content: center;
+		justify-content: end;
 		align-items: center;
 		background-color: rgb(25, 117, 188);
 	}
@@ -39,8 +43,24 @@
 	.deco img{
 		height: 2.3vh;
 	}
-	h1 {
-		color: white;
+	.space-even{
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	p svg{
+		width: 1vw;
+	}
+	nav{
+		margin-right: 5vw;
+		width: 10vw;
+	}
+	h1{
+		margin-right: 31vw;
+	}
+	nav p,a{
+		color:white;
+		text-decoration: none;
 	}
 	footer {
 		height: 8vh;
