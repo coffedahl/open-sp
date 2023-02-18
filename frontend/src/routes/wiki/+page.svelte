@@ -13,9 +13,11 @@
 		justify-content: start;
 		width: 80vw;
 		height: 80vh;
-		padding: 0 8vw;
 	}
-	p {
-		margin-top: 1em;
+	.article h1{
+		padding-top: 5vh;
 	}
+    .article p{
+        padding-top: 2vh;
+    }
 </style>

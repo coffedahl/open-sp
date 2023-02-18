@@ -16,6 +16,15 @@
             <p>This tool will help to prepare the priceadjustment strings that arrives from Airtable every morning in Teams for entering in to the "Inventeringslista-BC".</p>
             <h3>Guide</h3>
             <p>Guide</p>
+        {:else if data.title == "github"}
+            <h1>Github</h1>
+            <p>
+                If you have any ideas or want to contribute feel 
+                free to fork and build up your own functions but please read the guidelines below.
+            </p>
+            <p>
+                If you have any questions please contact me on teams Christoffer Dahl(3611)
+            </p>
         {:else}
             <h1>404 Page not found</h1>
             <p>We couldn't find the page {data.title} that you were looking for</p>
@@ -38,6 +47,9 @@
         padding-top: 3vh;
     }
     .article h3{
+        padding-top: 2vh;
+    }
+    .article p{
         padding-top: 2vh;
     }
 </style>
