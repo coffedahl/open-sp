@@ -13,6 +13,7 @@
 	>
 	{#if showTools}
 		<a href="/wiki/priceadjustment"><button class="sub">Price Adjustment Delim</button></a>
+		<a href="/wiki/shipmentcorrection"><button class="sub">Shipment correction</button></a>
 	{/if}
 </div>
 
