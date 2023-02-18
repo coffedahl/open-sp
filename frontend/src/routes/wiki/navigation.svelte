@@ -22,9 +22,9 @@
 		align-self: start;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		height: 80vh;
 		width: 100%;
-		background-color: red;
+		background-color: #e8e8e8;
 	}
 	.navigation button {
 		width: 100%;

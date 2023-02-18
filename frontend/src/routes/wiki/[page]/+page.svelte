@@ -26,12 +26,18 @@
 <style>
     div{
         width: 80vw;
+        height: 80vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: start;
     }
     .article{
-        width: 80%;
+        justify-content: start;
+        width: 60%;
+        padding-top: 3vh;
+    }
+    .article h3{
+        padding-top: 2vh;
     }
 </style>

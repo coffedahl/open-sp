@@ -10,7 +10,9 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+		justify-content: start;
 		width: 80vw;
+		height: 80vh;
 		padding: 0 8vw;
 	}
 	p {
