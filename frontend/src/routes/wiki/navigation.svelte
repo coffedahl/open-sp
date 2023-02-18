@@ -9,7 +9,7 @@
 	<a href="/wiki"><button class="primary">Wiki</button></a>
 	<button class="primary" on:click={handleTool}
 		><p>Tools</p>
-		{#if showTools}<p>A</p>{:else}<p>V</p>{/if}</button
+		{#if showTools}<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 1024 1024"><path d="M264.8 604.7l61.8 61.8L512 481.1l185.4 185.4 61.8-61.8L512 357.5z"/></svg>{:else}<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 1024 1024"><path d="M759.2 419.8L697.4 358 512 543.4 326.6 358l-61.8 61.8L512 667z"/></svg>{/if}</button
 	>
 	{#if showTools}
 		<a href="/wiki/priceadjustment"><button class="sub">Price Adjustment Delim</button></a>
@@ -36,7 +36,10 @@
 		border: 1px solid #dedede;
 	}
 	.sub {
-		background-color: #e4e4e4;
-		border: 1px solid #c1c1c1;
+		background-color: #eeeeee;
+		border: none;
+	}
+	svg{
+		width: 1vw;
 	}
 </style>
