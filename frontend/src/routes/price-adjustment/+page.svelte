@@ -1,6 +1,7 @@
 <script>
 	// Import components
 	import StringItem from '../string_item.svelte';
+	import { callFocus } from '../../global';
 
 	let attack_clones = false;
 	// Create variables
@@ -47,9 +48,9 @@
 		//Update interface
 		string_list = string_list;
 	}
-	function handleKeydown(e){
-		if(e.key == "Enter"){
-			handleButton()
+	function handleKeydown(e) {
+		if (e.key == 'Enter') {
+			handleButton();
 		}
 	}
 </script>
@@ -57,8 +58,15 @@
 <div class="main">
 	<div class="input">
 		<div class="text-field">
-			<input on:keydown={handleKeydown} class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
-			<button on:click={handleButton}><i class="center fas fa-arrow-right fa-lg"></i></button>
+			<input
+				use:callFocus
+				on:keydown={handleKeydown}
+				class="text"
+				placeholder="Price adjustment string"
+				bind:value={input}
+				type="text"
+			/>
+			<button on:click={handleButton}><i class="center fas fa-arrow-right fa-lg" /></button>
 		</div>
 		<p>Attack Clones?</p>
 		<input class="check" bind:checked={attack_clones} type="checkbox" />
@@ -113,7 +121,7 @@
 	.input button:hover {
 		background-color: #004982;
 	}
-	.input button{
+	.input button {
 		width: 5vh;
 	}
 </style>

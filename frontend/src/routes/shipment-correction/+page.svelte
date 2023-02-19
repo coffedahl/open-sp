@@ -1,18 +1,25 @@
 <script>
+	// Imports
 	import { goto } from '$app/navigation';
+	import { callFocus } from '../../global';
+	// Stores
 	import { shipmentData } from '../../stores';
+	// Variables
 	let input = '';
 	let lines = [];
 	let orders = [];
+	// Check if data alread exists and route on depending on value
 	shipmentData.subscribe((value) => {
 		orders = value;
-		console.log(orders.length)
 		if (orders.length != 0) {
-			goto('/shipment-correction/data')
+			goto('/shipment-correction/data');
 		}
 	});
+	// Handle the click of process data button
 	function handleClick() {
+		// Split the input in to lines
 		lines = input.split(/\n/);
+		// Split each line in to diffrent columns and parse data into orders
 		lines.forEach((element) => {
 			let data = element.split('	');
 			orders.push({
@@ -23,6 +30,7 @@
 				antal: data[4]
 			});
 		});
+		// Store data
 		shipmentData.set(orders);
 		orders = orders;
 	}
@@ -31,6 +39,7 @@
 <div class="main center column">
 	<h1>Shipment Correction</h1>
 	<textarea
+		use:callFocus
 		bind:value={input}
 		class="center"
 		placeholder="Enter shipment information here"
