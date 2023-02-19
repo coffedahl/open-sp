@@ -24,7 +24,7 @@
 	</div>
 	<div class="deco">
 		<a href="https://www.github.com/coffedahl/kjell-delim">
-			<i class="fab fa-github"></i>
+			<i class="fab fa-github" />
 			<p>Github</p>
 		</a>
 	</div>
@@ -92,7 +92,21 @@
 	nav p,
 	a {
 		color: white;
+	.deco {
+		display: flex;
+		justify-content: end;
+		height: 3vh;
+		background-color: #f5f5f5;
+		padding-right: 10vw;
+	}
+	.deco a {
+		display: flex;
+		align-items: center;
+		color: #767676;
 		text-decoration: none;
+	}
+	.deco p {
+		margin-left: 5px;
 	}
 	footer {
 		height: 8vh;
