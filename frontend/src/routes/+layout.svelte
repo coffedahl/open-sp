@@ -4,13 +4,14 @@
 			<div class="spacer"/>
 			<a href="/"><h1>Open-SP</h1></a>
 			<nav class="space-even">
+				<a href="/">Start</a>
 				<div class="dropdown">
 					<button class="dropdown-button">
 						<p>Tools</p>
 						<i class="fas fa-chevron-down" />
 					</button>
 					<div class="dropdown-content">
-						<a href="/price">Price Adjustment</a>
+						<a href="/price-adjustment">Price Adjustment</a>
 						<a href="/shipment">Shipment correction</a>
 					</div>
 				</div>
