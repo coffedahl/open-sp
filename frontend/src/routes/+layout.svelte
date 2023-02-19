@@ -1,26 +1,22 @@
-<script>
-	let dropdown = false;
-</script>
-
 <header>
 	<div class="title">
-		<a href="/"><h1>Open-SP</h1></a>
-		<nav class="space-even">
-			<button
-				class="space-even"
-				on:click={() => (dropdown ? (dropdown = false) : (dropdown = true))}
-			>
-				<p>Tools</p>
-				<i class="fas fa-chevron-down"></i>
-			</button>
-			{#if dropdown}
+		<div class="nav-container">
+			<div class="spacer"/>
+			<a href="/"><h1>Open-SP</h1></a>
+			<nav class="space-even">
 				<div class="dropdown">
-					<a href="/price">Price Adjustment</a>
-					<a href="/shipment">Shipment correction</a>
+					<button class="dropdown-button">
+						<p>Tools</p>
+						<i class="fas fa-chevron-down" />
+					</button>
+					<div class="dropdown-content">
+						<a href="/price">Price Adjustment</a>
+						<a href="/shipment">Shipment correction</a>
+					</div>
 				</div>
-			{/if}
-			<a href="/wiki">Wiki</a>
-		</nav>
+				<a href="/wiki">Wiki</a>
+			</nav>
+		</div>
 	</div>
 	<div class="deco">
 		<a href="https://www.github.com/coffedahl/kjell-delim">
@@ -38,60 +34,57 @@
 <style>
 	.title {
 		height: 9vh;
-		display: flex;
-		justify-content: end;
-		align-items: center;
 		background-color: #1975bc;
-	}
-	.deco {
 		display: flex;
-		justify-content: end;
-		height: 3vh;
-		background-color: #f5f5f5;
-		padding-right: 10vw;
+		justify-content: center;
+		align-items: center;
 	}
-	.deco a {
+	.nav-container{
+		width: 80%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	nav, .spacer{
+		width: 15vw;
+	}
+	nav button{
 		display: flex;
 		align-items: center;
-		color: #767676;
+		justify-content: space-between;
+		width: 4vw;
+	}
+	nav button i{
+		margin-top: 0.5vh;
+	}
+	a {
+		color: white;
 		text-decoration: none;
 	}
-	.deco p{
-		margin-left: 5px;
+	.dropdown-button {
+		background-color: inherit;
+		color: white;
+		border: none;
+		font-size: medium;
+	}
+	.dropdown:hover .dropdown-content {
+		display: flex;
+	}
+	.dropdown-content {
+		display: none;
+		background-color: #767676;
+		border-radius: 0.5em;
+		flex-direction: column;
+		position: absolute;
+	}
+	.dropdown-content a {
+		padding: 1em;
 	}
 	.space-even {
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
 	}
-	.dropdown{
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background-color: #1975bc;
-		padding: 1em;
-		margin-top: 14vh;
-		margin-left: -4vw;
-	}
-	button {
-		background-color: transparent;
-		border: none;
-		color: white;
-	}
-	button p {
-		font-size: medium;
-	}
-	nav {
-		margin-right: 5vw;
-		width: 10vw;
-	}
-	h1 {
-		margin-right: 31vw;
-	}
-	nav p,
-	a {
-		color: white;
 	.deco {
 		display: flex;
 		justify-content: end;
