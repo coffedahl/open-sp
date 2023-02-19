@@ -5,7 +5,7 @@
 	}
 </script>
 
-<div class="navigation">
+<div class="navigation column">
 	<a href="/wiki"><button class="primary">Wiki</button></a>
 	<button class="primary" on:click={handleTool}
 		><p>Tools</p>
@@ -21,8 +21,6 @@
 <style>
 	.navigation {
 		align-self: start;
-		display: flex;
-		flex-direction: column;
 		height: 80vh;
 		width: 100%;
 		background-color: #e8e8e8;

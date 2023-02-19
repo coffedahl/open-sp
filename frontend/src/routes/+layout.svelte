@@ -1,5 +1,5 @@
 <header>
-	<div class="title">
+	<div class="title center">
 		<div class="nav-container">
 			<div class="spacer"/>
 			<a href="/"><h1>Open-SP</h1></a>
@@ -10,7 +10,7 @@
 						<p>Tools</p>
 						<i class="fas fa-chevron-down" />
 					</button>
-					<div class="dropdown-content">
+					<div class="dropdown-content column">
 						<a href="/price-adjustment">Price Adjustment</a>
 						<a href="/shipment-correction">Shipment correction</a>
 					</div>
@@ -28,7 +28,7 @@
 </header>
 
 <slot />
-<footer>
+<footer class="center">
 	<p>Created by Coffe Dahl(3611), 2023</p>
 </footer>
 
@@ -36,9 +36,6 @@
 	.title {
 		height: 9vh;
 		background-color: #1975bc;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 	.nav-container{
 		width: 80%;
@@ -48,6 +45,7 @@
 	}
 	nav, .spacer{
 		width: 15vw;
+		align-items: center;
 	}
 	nav button{
 		display: flex;
@@ -76,7 +74,6 @@
 		background-color: #767676;
 		border: 2px solid #898989;
 		border-radius: 0.5em;
-		flex-direction: column;
 		position: absolute;
 	}
 	.dropdown-content a {
@@ -85,11 +82,7 @@
 	.dropdown-content a:hover{
 		background-color: #707070;
 	}
-	.space-even {
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-	}
+	
 	.deco {
 		display: flex;
 		justify-content: end;
@@ -108,9 +101,6 @@
 	}
 	footer {
 		height: 8vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		background-color: #f5f5f5;
 	}
 </style>
