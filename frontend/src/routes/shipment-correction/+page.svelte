@@ -1,7 +1,16 @@
 <script>
+	import { goto } from '$app/navigation';
+	import { shipmentData } from '../../stores';
 	let input = '';
 	let lines = [];
 	let orders = [];
+	shipmentData.subscribe((value) => {
+		orders = value;
+		console.log(orders.length)
+		if (orders.length != 0) {
+			goto('/shipment-correction/data')
+		}
+	});
 	function handleClick() {
 		lines = input.split(/\n/);
 		lines.forEach((element) => {
@@ -14,13 +23,20 @@
 				antal: data[4]
 			});
 		});
+		shipmentData.set(orders);
 		orders = orders;
 	}
 </script>
 
 <div class="main center column">
 	<h1>Shipment Correction</h1>
-	<textarea bind:value={input} class="center" placeholder="Enter shipment information here" cols="30" rows="10" />
+	<textarea
+		bind:value={input}
+		class="center"
+		placeholder="Enter shipment information here"
+		cols="30"
+		rows="10"
+	/>
 	<button class="center" on:click={handleClick}>
 		<i class="fas fa-upload" />
 		<p>Process information</p>
@@ -45,7 +61,7 @@
 	p {
 		padding-left: 5px;
 	}
-	textarea{
+	textarea {
 		width: 30vw;
 		height: 20vh;
 	}
