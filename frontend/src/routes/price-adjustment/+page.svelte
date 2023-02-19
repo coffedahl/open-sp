@@ -58,7 +58,7 @@
 	<div class="input">
 		<div class="text-field">
 			<input on:keydown={handleKeydown} class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
-			<button on:click={handleButton}><i class="fas fa-arrow-right fa-lg"></i></button>
+			<button on:click={handleButton}><i class="center fas fa-arrow-right fa-lg"></i></button>
 		</div>
 		<p>Attack Clones?</p>
 		<input class="check" bind:checked={attack_clones} type="checkbox" />
@@ -103,9 +103,6 @@
 		font-size: large;
 	}
 	.input button {
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		background-color: #0066b5;
 		color: white;
 		border-radius: 0.5em;
