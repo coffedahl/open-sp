@@ -12,7 +12,7 @@
 					</button>
 					<div class="dropdown-content">
 						<a href="/price-adjustment">Price Adjustment</a>
-						<a href="/shipment">Shipment correction</a>
+						<a href="/shipment-correction">Shipment correction</a>
 					</div>
 				</div>
 				<a href="/wiki">Wiki</a>
