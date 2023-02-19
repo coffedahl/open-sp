@@ -74,12 +74,16 @@
 	.dropdown-content {
 		display: none;
 		background-color: #767676;
+		border: 2px solid #898989;
 		border-radius: 0.5em;
 		flex-direction: column;
 		position: absolute;
 	}
 	.dropdown-content a {
 		padding: 1em;
+	}
+	.dropdown-content a:hover{
+		background-color: #707070;
 	}
 	.space-even {
 		display: flex;
