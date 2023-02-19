@@ -1,122 +1,28 @@
-<script>
-	// Import components
-	import StringItem from './string_item.svelte';
-
-	let attack_clones = false;
-	// Create variables
-	var string_list = [];
-	var input;
-
-	// Function for handling the process button
-	function handleButton() {
-		// Reset stringlist
-		string_list = [];
-		/* Take the text in the article field and split it by space and | 
-		to get list with all article numbers */
-		let input_list = input.split(/[\s|]+/);
-
-		/* Purge duplicates */
-		let article_list = [];
-		if (attack_clones) {
-			input_list.forEach((element) => {
-				if (!article_list.includes(element)) {
-					article_list.push(element);
-				}
-			});
-		} else {
-			article_list = input_list;
-		}
-
-		// Create variables for string creation
-		let new_string = '';
-		let counter = 0;
-		/* For each item in article list append to a string and when
-		 the string is 34 items long start on an new one*/
-		article_list.forEach((item) => {
-			if (counter == 32) {
-				counter = 1;
-				string_list.push(new_string.slice(0, -1));
-				new_string = item + '|';
-			} else {
-				new_string = new_string + item + '|';
-				counter++;
-			}
-		});
-		// Append the last amount to a string
-		string_list.push(new_string.slice(0, -1));
-		//Update interface
-		string_list = string_list;
-	}
-	function handleKeydown(e){
-		if(e.key == "Enter"){
-			handleButton()
-		}
-	}
-</script>
-
-<div class="main">
-	<div class="input">
-		<div class="text-field">
-			<input on:keydown={handleKeydown} class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
-			<button on:click={handleButton}><i class="fas fa-arrow-right fa-lg"></i></button>
-		</div>
-		<p>Attack Clones?</p>
-		<input class="check" bind:checked={attack_clones} type="checkbox" />
-	</div>
-	{#each string_list as string}
-		<StringItem {string} />
-	{/each}
+<div class="main center column">
+	<h1>Start</h1>
+	<a href="/price-adjustment"><button class="center"><i class="fas fa-tag"></i><p>Price Adjustment</p></button></a>
+	<a href="/wiki"><button class="center"><i class="fas fa-book"></i><p>Wiki</p></button></a>
 </div>
 
 <style>
-	.main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		overflow-y: auto;
-	}
-	.input {
-		margin-top: 5vh;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 60vw;
-	}
-	.input .text {
-		height: 5vh;
-		font-size: 1em;
-		border-radius: 0.5em;
-		padding-left: 0.8em;
-		padding-right: 0.3em;
-		border: 1.5px solid #d2d8dd;
-		width: 80%;
-	}
-	.text-field {
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		width: 80%;
-	}
-	.input input {
-		height: 4.5vh;
-		width: 4.5vh;
-		font-size: large;
-	}
-	.input button {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-color: #0066b5;
-		color: white;
-		border-radius: 0.5em;
+    a{
+        text-decoration: none;
+    }
+    p{
+        margin-left: 5px;
+    }
+	button {
+		width: 30vw;
+		height: 7vh;
+		margin-top: 3vh;
+		border-radius: 0.75em;
 		border: none;
-		aspect-ratio: 1/1;
-		height: 5vh;
+		background-color: #1975bc;
+        color: white;
+        font-size: large;
+        font-weight: 500;
 	}
-	.input button:hover {
-		background-color: #004982;
-	}
-	.input button{
-		width: 5vh;
-	}
+    button:hover{
+        background-color: #15639f;
+    }
 </style>
