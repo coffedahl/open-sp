@@ -39,7 +39,4 @@
 		background-color: #eeeeee;
 		border: none;
 	}
-	svg{
-		width: 1vw;
-	}
 </style>
