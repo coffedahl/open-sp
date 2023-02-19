@@ -47,12 +47,17 @@
 		//Update interface
 		string_list = string_list;
 	}
+	function handleKeydown(e){
+		if(e.key == "Enter"){
+			handleButton()
+		}
+	}
 </script>
 
 <div class="main">
 	<div class="input">
 		<div class="text-field">
-			<input class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
+			<input on:keydown={handleKeydown} class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
 			<button on:click={handleButton}><i class="fas fa-arrow-right fa-lg"></i></button>
 		</div>
 		<p>Attack Clones?</p>
