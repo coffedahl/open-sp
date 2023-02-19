@@ -11,9 +11,7 @@
 				on:click={() => (dropdown ? (dropdown = false) : (dropdown = true))}
 			>
 				<p>Tools</p>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 1024 1024">
-					<path d="M759.2 419.8L697.4 358 512 543.4 326.6 358l-61.8 61.8L512 667z" />
-				</svg>
+				<i class="fas fa-chevron-down"></i>
 			</button>
 			{#if dropdown}
 				<div class="dropdown">
@@ -26,7 +24,7 @@
 	</div>
 	<div class="deco">
 		<a href="https://www.github.com/coffedahl/kjell-delim">
-			<img src="/github-mark.png" alt="Github logo" />
+			<i class="fab fa-github"></i>
 			<p>Github</p>
 		</a>
 	</div>
@@ -58,8 +56,8 @@
 		color: #767676;
 		text-decoration: none;
 	}
-	.deco img {
-		height: 2.3vh;
+	.deco p{
+		margin-left: 5px;
 	}
 	.space-even {
 		display: flex;
@@ -79,12 +77,10 @@
 	button {
 		background-color: transparent;
 		border: none;
+		color: white;
 	}
 	button p {
 		font-size: medium;
-	}
-	button svg {
-		width: 1vw;
 	}
 	nav {
 		margin-right: 5vw;

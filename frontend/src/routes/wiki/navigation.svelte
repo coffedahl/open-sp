@@ -9,7 +9,7 @@
 	<a href="/wiki"><button class="primary">Wiki</button></a>
 	<button class="primary" on:click={handleTool}
 		><p>Tools</p>
-		{#if showTools}<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 1024 1024"><path d="M264.8 604.7l61.8 61.8L512 481.1l185.4 185.4 61.8-61.8L512 357.5z"/></svg>{:else}<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 1024 1024"><path d="M759.2 419.8L697.4 358 512 543.4 326.6 358l-61.8 61.8L512 667z"/></svg>{/if}</button
+		{#if showTools}<i class="fas fa-chevron-up"></i>{:else}<i class="fas fa-chevron-down"></i>{/if}</button
 	>
 	{#if showTools}
 		<a href="/wiki/priceadjustment"><button class="sub">Price Adjustment Delim</button></a>

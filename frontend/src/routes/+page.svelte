@@ -53,7 +53,7 @@
 	<div class="input">
 		<div class="text-field">
 			<input class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
-			<button on:click={handleButton}><img src="/icons8-right-arrow-50.png" alt=""></button>
+			<button on:click={handleButton}><i class="fas fa-arrow-right fa-lg"></i></button>
 		</div>
 		<p>Attack Clones?</p>
 		<input class="check" bind:checked={attack_clones} type="checkbox" />
@@ -111,7 +111,7 @@
 	.input button:hover {
 		background-color: #004982;
 	}
-	.input button img{
-		width: 3.5vh;
+	.input button{
+		width: 5vh;
 	}
 </style>
