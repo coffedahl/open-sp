@@ -27,9 +27,11 @@
 				hyllnr: data[1],
 				namn: data[2],
 				beskrivning: data[3],
-				antal: data[4]
+				antal: parseInt(data[4]),
+				actual: 0
 			});
 		});
+		orders.splice(0, 1);
 		// Store data
 		shipmentData.set(orders);
 		orders = orders;
