@@ -19,12 +19,13 @@
 		input_list.forEach((element) => {
 			if (element.length != 5) {
 				for (let i = 0; i < element.length / 5; i++) {
+					let slice = element.slice(i * 5, (i + 1) * 5)
 					if (attack_clones) {
-						if (!article_list.includes(element.slice(i * 5, (i + 1) * 5))) {
-							article_list.push(element.slice(i * 5, (i + 1) * 5))
+						if (!article_list.includes(slice)) {
+							article_list.push(slice)
 						}
 					}else{
-						article_list.push(element.slice(i*5, (i+1)*5))	
+						article_list.push(slice)	
 					}
 				}
 			} else {
