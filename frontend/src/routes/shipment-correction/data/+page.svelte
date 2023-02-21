@@ -69,7 +69,7 @@
 			id="artnr"
 		/>
 		<button on:click={handleButton}>Enter</button>
-		<button on:click={() => console.log(shipment)}>Done</button>
+		<button on:click={() => goto('/shipment-correction/result')}>Done</button>
 	{:else}
 		<h1>{currentObject.namn}</h1>
 		<p>{currentObject.artnr}</p>
