@@ -13,19 +13,34 @@
 		string_list = [];
 		/* Take the text in the article field and split it by space and | 
 		to get list with all article numbers */
-		let input_list = input.split(/[\s|]+/);
+		let input_list = input.split('|');
 
-		/* Purge duplicates */
+		// Create end list
 		let article_list = [];
-		if (attack_clones) {
-			input_list.forEach((element) => {
-				if (!article_list.includes(element)) {
+		// Check each element
+		input_list.forEach((element) => {
+			// Fix element and pugre doubles
+			if (element.length != 5) {
+				for (let i = 0; i < element.length / 5; i++) {
+					let slice = element.slice(i * 5, (i + 1) * 5);
+					if (attack_clones) {
+						if (!article_list.includes(slice)) {
+							article_list.push(slice);
+						}
+					} else {
+						article_list.push(slice);
+					}
+				}
+			} else {
+				if (attack_clones) {
+					if (!article_list.includes(element)) {
+						article_list.push(element);
+					}
+				} else {
 					article_list.push(element);
 				}
-			});
-		} else {
-			article_list = input_list;
-		}
+			}
+		});
 
 		// Create variables for string creation
 		let new_string = '';
@@ -47,9 +62,9 @@
 		//Update interface
 		string_list = string_list;
 	}
-	function handleKeydown(e){
-		if(e.key == "Enter"){
-			handleButton()
+	function handleKeydown(e) {
+		if (e.key == 'Enter') {
+			handleButton();
 		}
 	}
 </script>
@@ -57,8 +72,14 @@
 <div class="main">
 	<div class="input">
 		<div class="text-field">
-			<input on:keydown={handleKeydown} class="text" placeholder="Price adjustment string" bind:value={input} type="text" />
-			<button on:click={handleButton}><i class="center fas fa-arrow-right fa-lg"></i></button>
+			<input
+				on:keydown={handleKeydown}
+				class="text"
+				placeholder="Price adjustment string"
+				bind:value={input}
+				type="text"
+			/>
+			<button on:click={handleButton}><i class="center fas fa-arrow-right fa-lg" /></button>
 		</div>
 		<p>Attack Clones?</p>
 		<input class="check" bind:checked={attack_clones} type="checkbox" />
@@ -113,7 +134,7 @@
 	.input button:hover {
 		background-color: #004982;
 	}
-	.input button{
+	.input button {
 		width: 5vh;
 	}
 </style>
