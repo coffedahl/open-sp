@@ -23,6 +23,8 @@
 						if (!article_list.includes(element.slice(i * 5, (i + 1) * 5))) {
 							article_list.push(element.slice(i * 5, (i + 1) * 5))
 						}
+					}else{
+						article_list.push(element.slice(i*5, (i+1)*5))	
 					}
 				}
 			} else {
