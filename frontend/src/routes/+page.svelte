@@ -17,10 +17,8 @@
 		margin-top: 3vh;
 		border-radius: 0.75em;
 		border: none;
-		background-color: #1975bc;
-        color: white;
-        font-size: large;
-        font-weight: 500;
+		padding: 1em 2em;
+		width: 20%;
 	}
     button:hover{
         background-color: #15639f;
