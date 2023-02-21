@@ -14,7 +14,7 @@
 		string_list = [];
 		/* Take the text in the article field and split it by space and | 
 		to get list with all article numbers */
-		let input_list = input.split('|');
+		let input_list = input.split(/[\s|]+/);
 
 		// Create end list
 		let article_list = [];
