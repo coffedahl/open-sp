@@ -15,8 +15,11 @@
 		to get list with all article numbers */
 		let input_list = input.split('|');
 
+		// Create end list
 		let article_list = [];
+		// Check each element
 		input_list.forEach((element) => {
+			// Fix element and pugre doubles 
 			if (element.length != 5) {
 				for (let i = 0; i < element.length / 5; i++) {
 					let slice = element.slice(i * 5, (i + 1) * 5)
