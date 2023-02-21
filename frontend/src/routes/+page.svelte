@@ -30,6 +30,8 @@
 					if(!article_list.includes(element)){
 						article_list.push(element)
 					}
+				}else{
+					article_list.push(element)	
 				}
 			}
 		})
