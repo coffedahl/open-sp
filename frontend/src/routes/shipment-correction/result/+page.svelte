@@ -31,9 +31,13 @@
 				<td>{product.namn}</td>
 				<td>{product.antal}</td>
 				<td>{product.actual}</td>
-				<td class={product.antal - product.actual != 0 ? 'red' : 'green'}
-					>{product.antal - product.actual}</td
-				>
+				<td class={product.antal - product.actual != 0 ? 'red' : null}>
+					{#if product.antal - product.actual == 0}
+						<i class="fas fa-check" />
+					{:else}
+						{product.antal - product.actual}
+					{/if}
+				</td>
 			</tr>
 		{/each}
 	</table>
@@ -50,8 +54,5 @@
 	}
 	.red {
 		background-color: red;
-	}
-	.green {
-		background-color: green;
 	}
 </style>
