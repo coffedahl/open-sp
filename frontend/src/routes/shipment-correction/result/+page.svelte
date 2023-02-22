@@ -1,58 +1,120 @@
 <script>
+	//Imports
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	// Stores
+	//Stores
 	import { shipmentData } from '../../../stores';
 	let shipment;
 	shipmentData.subscribe((value) => {
 		shipment = value;
 	});
-
-	// On mount
+	//Variables
+	let difflist = [];
+	let showComplete = false;
+	// If list is empty redirect otherwise create a list of diffs
 	onMount(() => {
 		if (shipment.length == 0) {
 			goto('/shipment-correction');
+		} else {
+			shipment.forEach((element) => {
+				if (element.actual - element.antal != 0) {
+					difflist.push(element);
+				}
+			});
+			difflist = difflist;
 		}
 	});
 </script>
 
 <div class="main center column">
-	<table>
-		<tr>
-			<th>Artnr</th>
-			<th>Namn</th>
-			<th>Antal</th>
-			<th>Räknat antal</th>
-			<th>Diff</th>
-		</tr>
-		{#each shipment as product}
+	<p>You have <b>{difflist.length}</b> diffs in your shipment.</p>
+	{#if !showComplete}
+		{#if difflist.length <= 5}
+			<table>
+				<tr>
+					<th>Artnr</th>
+					<th>Namn</th>
+					<th>Antal</th>
+					<th>Räknat antal</th>
+					<th>Diff</th>
+				</tr>
+				{#each difflist as item}
+					<tr>
+						<td>{item.artnr}</td>
+						<td>{item.namn}</td>
+						<td>{item.antal}</td>
+						<td>
+							<button class="change"><i class="fas fa-plus" /></button>
+							{item.actual}
+							<button class="change"><i class="fas fa-minus" /></button>
+						</td>
+						<td>{item.actual - item.antal}</td>
+					</tr>
+				{/each}
+			</table>
+		{/if}
+	{/if}
+	<div>
+		<button
+			on:click={() => {
+				showComplete ? (showComplete = false) : (showComplete = true);
+			}}>{showComplete ? 'Hide' : 'Show'} complete list</button
+		>
+		<button> Print report </button>
+	</div>
+	{#if showComplete}
+		<table>
 			<tr>
-				<td>{product.artnr}</td>
-				<td>{product.namn}</td>
-				<td>{product.antal}</td>
-				<td>{product.actual}</td>
-				<td class={product.antal - product.actual != 0 ? 'red' : null}>
-					{#if product.antal - product.actual == 0}
-						<i class="fas fa-check" />
-					{:else}
-						{product.antal - product.actual}
-					{/if}
-				</td>
+				<th>Artnr</th>
+				<th>Namn</th>
+				<th>Antal</th>
+				<th>Räknat antal</th>
+				<th>Diff</th>
 			</tr>
-		{/each}
-	</table>
+			{#each shipment as item}
+				<tr>
+					<td>{item.artnr}</td>
+					<td>{item.namn}</td>
+					<td>{item.antal}</td>
+					<td>{item.actual}</td>
+					<td class="count">
+						{#if item.actual - item.antal == 0}
+							<i class="fas fa-check" />
+						{:else}
+							{item.actual - item.antal}
+						{/if}
+					</td>
+				</tr>
+			{/each}
+		</table>
+	{/if}
 </div>
 
 <style>
+	p {
+		margin: 5vh 0;
+		font-size: larger;
+	}
+	button {
+		margin-top: 5vh;
+		padding: 1em;
+		border-radius: 0.5em;
+		border: 1px solid black;
+	}
+	.count{
+		text-align: center;
+	}
+	.change{
+		padding: 0.2em;
+		margin: 0;
+	}
 	table {
 		border-collapse: collapse;
+		margin: 3vh 0;
 	}
 	th,
 	td {
 		border: 1px solid black;
 		padding: 0.3em;
-	}
-	.red {
-		background-color: red;
 	}
 </style>
