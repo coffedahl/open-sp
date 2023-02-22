@@ -32,6 +32,7 @@
 			});
 		});
 		orders.splice(0, 1);
+		orders.splice(-1, 1);
 		// Store data
 		shipmentData.set(orders);
 		orders = orders;
