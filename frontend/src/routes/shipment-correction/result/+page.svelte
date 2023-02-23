@@ -43,11 +43,7 @@
 						<td>{item.artnr}</td>
 						<td>{item.namn}</td>
 						<td>{item.antal}</td>
-						<td>
-							<button class="change"><i class="fas fa-plus" /></button>
-							{item.actual}
-							<button class="change"><i class="fas fa-minus" /></button>
-						</td>
+						<td class="test">{item.actual} </td>
 						<td>{item.actual - item.antal}</td>
 					</tr>
 				{/each}
@@ -101,12 +97,8 @@
 		border-radius: 0.5em;
 		border: 1px solid black;
 	}
-	.count{
+	.count {
 		text-align: center;
-	}
-	.change{
-		padding: 0.2em;
-		margin: 0;
 	}
 	table {
 		border-collapse: collapse;
