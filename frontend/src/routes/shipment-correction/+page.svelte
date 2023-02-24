@@ -56,6 +56,9 @@
 </div>
 
 <style>
+	h1{
+		margin-bottom: 2vh;
+	}
 	button {
 		width: 30vw;
 		height: 7vh;
