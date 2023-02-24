@@ -8,7 +8,8 @@
 	shipmentData.subscribe((value) => {
 		shipment = value;
 	});
-	let date = Date.now();
+	const date = new Date().toJSON().slice(0, 10);
+
 	onMount(() => {
 		window.print();
 		goto('/shipment-correction/result');
@@ -46,7 +47,7 @@
 </div>
 
 <style>
-	.print{
+	.print {
 		display: none;
 	}
 	@media print {
@@ -72,7 +73,7 @@
 			border: 1px solid #888888;
 			background-color: #fefefe;
 			-webkit-color-adjust: exact;
-			padding: .1em .5em;
+			padding: 0.1em 0.5em;
 		}
 	}
 </style>
