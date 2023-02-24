@@ -68,8 +68,8 @@
 			bind:value={input}
 			id="artnr"
 		/>
-		<button on:click={handleButton}>Enter</button>
-		<button on:click={() => goto('/shipment-correction/result')}>Done</button>
+		<button class="enter" on:click={handleButton}>Enter</button>
+		<button class="done" on:click={() => goto('/shipment-correction/result')}>Done</button>
 	{:else}
 		<h1>{currentObject.namn}</h1>
 		<p>{currentObject.artnr}</p>
@@ -80,9 +80,11 @@
 			placeholder="Antal"
 			bind:value={actual}
 			on:keydown={handleKeydown}
+			autocomplete="false"
 		/>
-		<button on:click={handleEnter}>Enter</button>
+		<button class="enter" on:click={handleEnter}>Enter</button>
 		<button
+			class="clear"
 			on:click={() => {
 				//reset inputs anc current article
 				currentObject = '';
@@ -91,3 +93,38 @@
 		>
 	{/if}
 </div>
+
+<style>
+	h1 {
+		font-size: 20px;
+	}
+	p {
+		padding-bottom: 5vh;
+	}
+	input {
+		width: 19vw;
+		padding: 0.5em;
+		border-radius: 0.5em;
+		border: 1px solid black;
+		margin-bottom: 0.3em;
+		font-size: medium;
+	}
+	button {
+		width: 20vw;
+		padding: 0.5em;
+		border-radius: 0.5em;
+		border: 1px solid black;
+		margin-top: 0.5em;
+		color: white;
+		font-size: medium;
+	}
+	.enter {
+		background-color: #1975bc;
+	}
+	.clear {
+		background-color: #823f3f;
+	}
+	.done {
+		background-color: #3e8a3e;
+	}
+</style>
