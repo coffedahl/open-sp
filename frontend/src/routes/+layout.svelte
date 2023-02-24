@@ -1,16 +1,3 @@
-<script>
-	import { onMount } from 'svelte';
-	import { shipmentData } from '../stores';
-
-	onMount(() => {
-		const store = localStorage.content;
-		shipmentData.set(store || []);
-		shipmentData.subscribe((val) => {
-			localStorage.content = val;
-		});
-	});
-</script>
-
 <header>
 	<div class="title center">
 		<div class="nav-container">
