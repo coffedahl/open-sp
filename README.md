@@ -20,9 +20,9 @@ Create a *docker-compose.yml* in the folder and paste the contents down below
 ```yaml
 version: "3.7"
   services:
-    kjell_delim:
+    open-sp:
       build: .
-      container_name: kjell_delim
+      container_name: open-sp
       ports:
         - 3000:3000
 ```
@@ -33,10 +33,10 @@ docker-compose up -d --force-recreate
 The program should now be available trough *localhost:3000*
 #### Docker
 ```bash
-docker build -t coffedahl/kjell-delim .
+docker build -t coffedahl/open-sp .
 ```
 After the container is built you can run it trough:
 ```bash
-docker run --name kjell-delim -p 3000:3000 coffedahl/kjell-delim
+docker run --name kjell-delim -p 3000:3000 coffedahl/open-sp
 ```
 The program should now be avaliable trough *localhost:3000*
