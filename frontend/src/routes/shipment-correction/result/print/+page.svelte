@@ -15,46 +15,46 @@
 	});
 </script>
 
-<h1>Test</h1>
-<button on:click={() => window.print({ printBackround: true })}>print</button>
-<div>
-	<p>Shipment Report - {date}</p>
-	<table>
-		<tr>
-			<th>Artnr</th>
-			<th>Namn</th>
-			<th>Antal</th>
-			<th>Räknat antal</th>
-			<th>Diff</th>
-		</tr>
-		{#each shipment as item}
+<div class="main column">
+	<div class="print">
+		<p>Shipment Report - {date}</p>
+		<table>
 			<tr>
-				<td>{item.artnr}</td>
-				<td>{item.namn}</td>
-				<td>{item.antal}</td>
-				<td>{item.actual}</td>
-				<td class="count">
-					{#if item.actual - item.antal == 0}
-						<i class="fas fa-check" />
-					{:else}
-						{item.actual - item.antal}
-					{/if}
-				</td>
+				<th>Artnr</th>
+				<th>Namn</th>
+				<th>Antal</th>
+				<th>Räknat antal</th>
+				<th>Diff</th>
 			</tr>
-		{/each}
-	</table>
+			{#each shipment as item}
+				<tr>
+					<td>{item.artnr}</td>
+					<td>{item.namn}</td>
+					<td>{item.antal}</td>
+					<td>{item.actual}</td>
+					<td class="count">
+						{#if item.actual - item.antal == 0}
+							<i class="fas fa-check" />
+						{:else}
+							{item.actual - item.antal}
+						{/if}
+					</td>
+				</tr>
+			{/each}
+		</table>
+	</div>
 </div>
 
 <style>
+	.print{
+		display: none;
+	}
 	@media print {
-		div {
+		.print {
+			width: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-		}
-		h1,
-		button {
-			display: none;
 		}
 		table {
 			width: 100%;
