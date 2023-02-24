@@ -52,11 +52,14 @@
 	{/if}
 	<div>
 		<button
+			class="list"
 			on:click={() => {
 				showComplete ? (showComplete = false) : (showComplete = true);
 			}}>{showComplete ? 'Hide' : 'Show'} complete list</button
 		>
-		<button on:click={() => goto('/shipment-correction/result/print')}> Print report </button>
+		<button class="print" on:click={() => goto('/shipment-correction/result/print')}
+			><i class="fas fa-print" /></button
+		>
 	</div>
 	{#if showComplete}
 		<table>
@@ -93,9 +96,18 @@
 	}
 	button {
 		margin-top: 5vh;
-		padding: 1em;
+		padding: 0.8em;
 		border-radius: 0.5em;
 		border: 1px solid black;
+		font-size: medium;
+		color: white;
+	}
+	.print {
+		background-color: #4fa24f;
+		aspect-ratio: 1/1;
+	}
+	.list {
+		background-color: #1975bc;
 	}
 	.count {
 		text-align: center;
