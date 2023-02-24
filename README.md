@@ -1,4 +1,4 @@
-# kjell-delim
+# Open-SP
 This is a project to create a tool for the Service Points at Kjell & Co that makes their lifes easier with their daily tasks.
 
 ## Features
