@@ -1,124 +1,44 @@
-<script>
-	// Import components
-	import StringItem from './string_item.svelte';
-
-	let attack_clones = false;
-	// Create variables
-	var string_list = [];
-	var input;
-
-	// Function for handling the process button
-	function handleButton() {
-		// Reset stringlist
-		string_list = [];
-		/* Take the text in the article field and split it by space and | 
-		to get list with all article numbers */
-		let input_list = input.split('|');
-
-		// Create end list
-		let article_list = [];
-		// Check each element
-		input_list.forEach((element) => {
-			// Fix element and pugre doubles 
-			if (element.length != 5) {
-				for (let i = 0; i < element.length / 5; i++) {
-					let slice = element.slice(i * 5, (i + 1) * 5)
-					if (attack_clones) {
-						if (!article_list.includes(slice)) {
-							article_list.push(slice)
-						}
-					}else{
-						article_list.push(slice)	
-					}
-				}
-			} else {
-				if(attack_clones){
-					if(!article_list.includes(element)){
-						article_list.push(element)
-					}
-				}else{
-					article_list.push(element)	
-				}
-			}
-		})
-
-		// Create variables for string creation
-		let new_string = '';
-		let counter = 0;
-		/* For each item in article list append to a string and when
-		 the string is 34 items long start on an new one*/
-		article_list.forEach((item) => {
-			if (counter == 32) {
-				counter = 1;
-				string_list.push(new_string.slice(0, -1));
-				new_string = item + '|';
-			} else {
-				new_string = new_string + item + '|';
-				counter++;
-			}
-		});
-		// Append the last amount to a string
-		string_list.push(new_string.slice(0, -1));
-		//Update interface
-		string_list = string_list;
-	}
-</script>
-
-<div class="main">
-	<div class="input">
-		<input class="text" bind:value={input} type="text" />
-		<button on:click={handleButton}>Submit</button>
-		<p>Attack Clones?</p>
-		<input class="check" bind:checked={attack_clones} type="checkbox" />
-	</div>
-	{#each string_list as string}
-	<StringItem {string} />
-	{/each}
+<div class="main center column">
+	<h1>Start</h1>
+	<a href="/price-adjustment"
+		><button class="center"
+			><i class="fas fa-tag" />
+			<p>Price Adjustment</p></button
+		></a
+	>
+	<a href="/shipment-correction"
+		><button class="center"
+			><i class="fas fa-truck" />
+			<p>Shipment Correction</p></button
+		></a
+	>
+	<a href="/wiki"
+		><button class="center"
+			><i class="fas fa-book" />
+			<p>Wiki</p></button
+		></a
+	>
 </div>
 
 <style>
-	.main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		height: 80vh;
-		overflow-y: auto;
+	a {
+		text-decoration: none;
 	}
-
-	.input {
-		margin-top: 5vh;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 60vw;
+	p {
+		margin-left: 5px;
 	}
-
-	.input .text {
-		height: 5vh;
-		font-size: large;
-		width: 60%;
-		border-radius: 2em;
-		padding-left: 1em;
-		border: 1px solid black;
-	}
-
-	.input input {
-		height: 5vh;
-		width: 5vh;
-		border-radius: 2em;
-		font-size: large;
-	}
-
-	.input button {
-		background-color: #5e9f1a;
-		color: white;
-		border-radius: 2em;
+	button {
+		width: 30vw;
+		height: 7vh;
+		margin-top: 3vh;
+		border-radius: 0.75em;
 		border: none;
-		padding: 1em 2em;
-		width: 20%;
+		background-color: #1975bc;
+		color: white;
+		font-size: large;
+		font-weight: 500;
 	}
-
-	.input button:hover {
-		background-color: #3b6111;
+	button:hover {
+		background-color: #15639f;
 	}
 </style>
