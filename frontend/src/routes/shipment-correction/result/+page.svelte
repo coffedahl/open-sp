@@ -56,7 +56,7 @@
 				showComplete ? (showComplete = false) : (showComplete = true);
 			}}>{showComplete ? 'Hide' : 'Show'} complete list</button
 		>
-		<button> Print report </button>
+		<button on:click={() => goto('/shipment-correction/result/print')}> Print report </button>
 	</div>
 	{#if showComplete}
 		<table>
