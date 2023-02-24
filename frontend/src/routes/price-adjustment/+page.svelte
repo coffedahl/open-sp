@@ -1,6 +1,7 @@
 <script>
 	// Import components
 	import StringItem from '../string_item.svelte';
+	import { callFocus } from '../../global';
 
 	let attack_clones = false;
 	// Create variables
@@ -73,6 +74,7 @@
 	<div class="input">
 		<div class="text-field">
 			<input
+				use:callFocus
 				on:keydown={handleKeydown}
 				class="text"
 				placeholder="Price adjustment string"
