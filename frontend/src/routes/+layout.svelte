@@ -1,7 +1,20 @@
+<script>
+	import { onMount } from 'svelte';
+	import { shipmentData } from '../stores';
+
+	onMount(() => {
+		const store = localStorage.content;
+		shipmentData.set(store || []);
+		shipmentData.subscribe((val) => {
+			localStorage.content = val;
+		});
+	});
+</script>
+
 <header>
 	<div class="title center">
 		<div class="nav-container">
-			<div class="spacer"/>
+			<div class="spacer" />
 			<a href="/"><h1>Open-SP</h1></a>
 			<nav class="space-even">
 				<a href="/">Start</a>
@@ -37,23 +50,24 @@
 		height: 9vh;
 		background-color: #1975bc;
 	}
-	.nav-container{
+	.nav-container {
 		width: 80%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
-	nav, .spacer{
+	nav,
+	.spacer {
 		width: 15vw;
 		align-items: center;
 	}
-	nav button{
+	nav button {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		width: 4vw;
 	}
-	nav button i{
+	nav button i {
 		margin-top: 0.5vh;
 	}
 	a {
@@ -79,10 +93,10 @@
 	.dropdown-content a {
 		padding: 1em;
 	}
-	.dropdown-content a:hover{
+	.dropdown-content a:hover {
 		background-color: #707070;
 	}
-	
+
 	.deco {
 		display: flex;
 		justify-content: end;
