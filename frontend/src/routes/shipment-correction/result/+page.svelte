@@ -121,4 +121,10 @@
 		border: 1px solid black;
 		padding: 0.3em;
 	}
+	th{
+		background-color: #eeeeee;
+	}
+	table{
+		width: 40vw;
+	}
 </style>
