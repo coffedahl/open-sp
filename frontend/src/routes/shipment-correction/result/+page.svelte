@@ -60,6 +60,15 @@
 		<button class="print" on:click={() => goto('/shipment-correction/result/print')}
 			><i class="fas fa-print" /></button
 		>
+		<button
+			class="reset"
+			on:click={() => {
+				shipmentData.set([]);
+				goto('/shipment-correction');
+			}}
+		>
+			<i class="fa fa-rotate-left" /></button
+		>
 	</div>
 	{#if showComplete}
 		<table>
@@ -109,6 +118,10 @@
 	.list {
 		background-color: #1975bc;
 	}
+	.reset {
+		background-color: #b95858;
+		aspect-ratio: 1/1;
+	}
 	.count {
 		text-align: center;
 	}
@@ -121,10 +134,10 @@
 		border: 1px solid black;
 		padding: 0.3em;
 	}
-	th{
+	th {
 		background-color: #eeeeee;
 	}
-	table{
+	table {
 		width: 40vw;
 	}
 </style>

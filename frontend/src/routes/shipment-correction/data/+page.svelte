@@ -68,8 +68,19 @@
 			bind:value={input}
 			id="artnr"
 		/>
-		<button class="enter" on:click={handleButton}>Enter</button>
-		<button class="done" on:click={() => goto('/shipment-correction/result')}>Done</button>
+		<button class="enter" on:click={handleButton}
+			>Enter <i class="fas fa-right-to-bracket" /></button
+		>
+		<button class="done" on:click={() => goto('/shipment-correction/result')}
+			>Done <i class="fas fa-check" /></button
+		>
+		<button
+			class="reset"
+			on:click={() => {
+				shipmentData.set([]);
+				goto('/shipment-correction');
+			}}>Reset <i class="fas fa-rotate-left" /></button
+		>
 	{:else}
 		<h1>{currentObject.namn}</h1>
 		<p>{currentObject.artnr}</p>
@@ -82,14 +93,15 @@
 			on:keydown={handleKeydown}
 			autocomplete="false"
 		/>
-		<button class="enter" on:click={handleEnter}>Enter</button>
+		<button class="enter" on:click={handleEnter}>Enter <i class="fas fa-right-to-bracket" /></button
+		>
 		<button
 			class="clear"
 			on:click={() => {
 				//reset inputs anc current article
 				currentObject = '';
 				input = '';
-			}}>Clear</button
+			}}>Clear <i class="fas fa-eraser" /></button
 		>
 	{/if}
 </div>
@@ -121,8 +133,9 @@
 	.enter {
 		background-color: #1975bc;
 	}
-	.clear {
-		background-color: #823f3f;
+	.clear,
+	.reset {
+		background-color: #b95858;
 	}
 	.done {
 		background-color: #3e8a3e;
