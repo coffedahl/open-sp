@@ -33,7 +33,7 @@
 		}
 	}
 
-	// Handle button
+	// Handle the artnr entry
 	function handleButton() {
 		// Find object where article number is and set current object
 		currentObject = shipment.find((e) => e.artnr == input);
@@ -44,7 +44,7 @@
 		input = '';
 	}
 
-	// Hande the amount entering
+	// Hande the amount entry
 	function handleEnter(artnr) {
 		//Find index of the current object and set actual to input
 		let index = shipment.findIndex((e) => e.artnr == artnr);
