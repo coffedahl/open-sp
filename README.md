@@ -1,9 +1,10 @@
 # Open-SP
-This is a project to create a tool for the Service Points at Kjell & Co that makes their lifes easier with their daily tasks.
+This is a project to create a tool for the Service Points at Kjell & Co that makes their lifes easier with their daily tasks. The project is based on the expireices of sellers and how we can make things as efficent as possible with repetitive tasks.
 
 ## Features
 - Tool for divideing up priceadjustments from airtable to correct lengths of strings for inventory list
 - Removing of duplicates
+- Shipment inventory, checking that shipments are correct
 - Simple tutorial page
 
 ## Installation
