@@ -14,8 +14,21 @@
 		string_list = [];
 		/* Take the text in the article field and split it by space and | 
 		to get list with all article numbers */
-		let input_list = input.split('|');
 
+		let input_list = input.split(/[\s|]+/);
+		let article_list = [];
+		if (attack_clones) {
+			input_list.forEach((element) => {
+				if (!article_list.includes(element)) {
+					article_list.push(element);
+				}
+			});
+		} else {
+			article_list = input_list;
+		}
+
+		// REMOVED BECAUSE OF POSSIBLE BUG
+		/*let input_list = input.split('|');
 		// Create end list
 		let article_list = [];
 		// Check each element
@@ -41,7 +54,7 @@
 					article_list.push(element);
 				}
 			}
-		});
+		});*/
 
 		// Create variables for string creation
 		let new_string = '';
