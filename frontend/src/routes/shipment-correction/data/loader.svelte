@@ -8,7 +8,7 @@
 
 	// Filter out the items that has been completed
 	let complete = shipment.filter((element) => {
-		if (element.actual != 0) {
+		if (element.actual != null) {
 			return true;
 		} else {
 			return false;
@@ -27,15 +27,15 @@
 </div>
 
 <style>
-	.title{
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
+	.title {
+		display: flex;
+		justify-content: space-between;
+		align-items: end;
 		margin-bottom: 0.3em;
-    }
-    .title h1{
-        font-size: large;
-    }
+	}
+	.title h1 {
+		font-size: large;
+	}
 	.rounded {
 		border-radius: 1em;
 	}
