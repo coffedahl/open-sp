@@ -38,7 +38,7 @@
 	// Handle the artnr entry
 	function handleButton() {
 		// Find object where article number is and set current object
-		if (input != undefined && input != "") {
+		if (input != undefined && input != '') {
 			currentObject = shipment.find((e) => e.artnr == input);
 		} else {
 			alert('cannot be empty');
@@ -47,16 +47,24 @@
 		input = '';
 	}
 
-	// Hande the amount entry
-	function handleEnter(artnr) {
+	function updateActual(artnr, actual) {
 		//Find index of the current object and set actual to input
 		let index = shipment.findIndex((e) => e.artnr == artnr);
 		shipment[index].actual = actual;
 		//update local store
 		shipmentData.set(shipment);
-		//reset inputs
-		currentObject = '';
-		actual = '';
+	}
+
+	// Hande the amount entry
+	function handleEnter(artnr) {
+		if (currentObject.actual != null) {
+			
+		} else {
+			updateActual(artnr, actual);
+			//reset inputs
+			currentObject = '';
+			actual = '';
+		}
 	}
 </script>
 
