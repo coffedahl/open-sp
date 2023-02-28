@@ -16,7 +16,7 @@
 	let input;
 	let currentObject = '';
 	let actual;
-
+	let dualOverlay = false;
 	//On load check if there is content in shipment list or redirect
 	onMount(() => {
 		if (shipment.length == 0) {
@@ -58,10 +58,10 @@
 	// Hande the amount entry
 	function handleEnter(artnr) {
 		if (currentObject.actual != null) {
-			
+			dualOverlay = true;
 		} else {
 			updateActual(artnr, actual);
-			//reset inputs
+			//reset variables
 			currentObject = '';
 			actual = '';
 		}
@@ -118,9 +118,35 @@
 			}}>Clear <i class="fas fa-eraser" /></button
 		>
 	{/if}
+	{#if dualOverlay}
+		<div class="overlay column center">
+			<h1>This article has already been enterd.</h1>
+			<h2>What do you want to do?</h2>
+			<div class="row">
+				<p>Expected quantity: <b>{currentObject.antal}</b></p>
+				<p>Already enterd quantity: <b>{currentObject.actual}</b></p>
+			</div>
+			<h2>Your input: <b>{actual}</b></h2>
+			<button>Add up</button>
+			<button>Override</button>
+		</div>
+	{/if}
 </div>
 
 <style>
+	.overlay {
+		background-color: #f5f5f5;
+		position: absolute;
+		height: 40vh;
+		width: 45vw;
+		border: 1px solid black;
+		box-shadow: .2vw .2vw .8vw .8vw rgba(0, 0, 0, 0.116)	}
+	.overlay button{
+		background-color: #1975bc;
+	}
+	.row {
+		display: flex;
+	}
 	h1 {
 		font-size: 20px;
 	}
