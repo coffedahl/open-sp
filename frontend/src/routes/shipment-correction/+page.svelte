@@ -10,8 +10,7 @@
 	let orders = [];
 	// Check if data alread exists and route on depending on value
 	shipmentData.subscribe((value) => {
-		orders = value;
-		if (orders.length != 0) {
+		if (value.length != 0) {
 			goto('/shipment-correction/data');
 		}
 	});
@@ -22,19 +21,20 @@
 		// Split each line in to diffrent columns and parse data into orders
 		lines.forEach((element) => {
 			let data = element.split('	');
-			orders.push({
-				artnr: data[0],
-				hyllnr: data[1],
-				namn: data[2],
-				beskrivning: data[3],
-				antal: parseInt(data[4]),
-				actual: 0
-			});
+			if (data[4] != '') {
+				orders.push({
+					artnr: data[0],
+					hyllnr: data[1],
+					namn: data[2],
+					beskrivning: data[3],
+					antal: parseInt(data[4]),
+					actual: 0
+				});
+			}
 		});
 		orders.splice(0, 1);
 		// Store data
 		shipmentData.set(orders);
-		orders = orders;
 	}
 </script>
 
@@ -55,7 +55,7 @@
 </div>
 
 <style>
-	h1{
+	h1 {
 		margin-bottom: 2vh;
 	}
 	button {
