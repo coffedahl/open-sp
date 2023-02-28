@@ -28,7 +28,7 @@
 					namn: data[2],
 					beskrivning: data[3],
 					antal: parseInt(data[4]),
-					actual: 0
+					actual: null
 				});
 			}
 		});
