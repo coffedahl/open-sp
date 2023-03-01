@@ -127,8 +127,22 @@
 				<p>Already enterd quantity: <b>{currentObject.actual}</b></p>
 			</div>
 			<h2>Your input: <b>{actual}</b></h2>
-			<button>Add up</button>
-			<button>Override</button>
+			<button
+				on:click={() => {
+					updateActual(currentObject.artnr, actual + currentObject.actual);
+					currentObject = '';
+					actual = '';
+					dualOverlay = false;
+				}}>Add up</button
+			>
+			<button
+				on:click={() => {
+					updateActual(currentObject.artnr, actual);
+					currentObject = '';
+					actual = '';
+					dualOverlay = false;
+				}}>Override</button
+			>
 		</div>
 	{/if}
 </div>
@@ -140,8 +154,9 @@
 		height: 40vh;
 		width: 45vw;
 		border: 1px solid black;
-		box-shadow: .2vw .2vw .8vw .8vw rgba(0, 0, 0, 0.116)	}
-	.overlay button{
+		box-shadow: 0.2vw 0.2vw 0.8vw 0.8vw rgba(0, 0, 0, 0.116);
+	}
+	.overlay button {
 		background-color: #1975bc;
 	}
 	.row {
