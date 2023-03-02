@@ -123,10 +123,10 @@
 			<h1>This article has already been enterd.</h1>
 			<h2>What do you want to do?</h2>
 			<div class="row">
-				<p>Expected quantity: <b>{currentObject.antal}</b></p>
-				<p>Already enterd quantity: <b>{currentObject.actual}</b></p>
+				<p>Expected: <b>{currentObject.antal}</b></p>
+				<p>Previous: <b>{currentObject.actual}</b></p>
 			</div>
-			<h2>Your input: <b>{actual}</b></h2>
+			<h2 class="current">Current input: <b>{actual}</b></h2>
 			<button
 				on:click={() => {
 					updateActual(currentObject.artnr, actual + currentObject.actual);
@@ -152,15 +152,25 @@
 		background-color: #f5f5f5;
 		position: absolute;
 		height: 40vh;
-		width: 45vw;
+		width: 40vw;
 		border: 1px solid black;
+		border-radius: 01em;
 		box-shadow: 0.2vw 0.2vw 0.8vw 0.8vw rgba(0, 0, 0, 0.116);
 	}
 	.overlay button {
 		background-color: #1975bc;
 	}
+	.overlay h1,h2,p{
+		margin-top: 1vh;
+	}
+	.current{
+		margin-top: -3vh;
+	}
 	.row {
 		display: flex;
+		justify-content: space-evenly;
+		width: 50%;
+		margin: 0;
 	}
 	h1 {
 		font-size: 20px;
