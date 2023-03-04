@@ -1,6 +1,6 @@
 <script>
-	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { callFocus } from '../../../../global';
 
 	let seller;
 	//Stores
@@ -21,7 +21,17 @@
 
 <div class="main column">
 	<div class="overlay center column">
-		<input type="text" placeholder="Seller ID" bind:value={seller} />
+		<input
+			type="text"
+			placeholder="Seller ID"
+			use:callFocus
+			on:keydown={(e) => {
+				if (e.key == 'Enter') {
+					handleClick();
+				}
+			}}
+			bind:value={seller}
+		/>
 		<button on:click={handleClick}>Print</button>
 	</div>
 	<div class="print">
