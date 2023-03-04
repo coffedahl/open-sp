@@ -24,7 +24,10 @@
 		}
 	});
 
-	// Handle enter press
+	/**
+	 * Function for handling pressing of the "enter" key
+	 * @param e The event from keydown
+	 */
 	function handleKeydown(e) {
 		if (e.key == 'Enter') {
 			if (e.target.id == 'artnr') {
@@ -35,10 +38,13 @@
 		}
 	}
 
-	// Handle the artnr entry
+	/**
+	 * Function for handeling the entering of a product
+	 */
 	function handleButton() {
 		// Find object where article number is and set current object
 		if (input != undefined && input != '') {
+			// Check if article exsist
 			if (shipment.find((e) => e.artnr == input)){
 				currentObject = shipment.find((e) => e.artnr == input);
 			}else{
@@ -50,7 +56,11 @@
 		//reset input
 		input = '';
 	}
-
+	/**
+	 * Function for updating the actual counter
+	 * @param artnr The product that is beeing changed
+	 * @param actual The new count beeing enterd
+	 */
 	function updateActual(artnr, actual) {
 		//Find index of the current object and set actual to input
 		let index = shipment.findIndex((e) => e.artnr == artnr);
@@ -59,7 +69,10 @@
 		shipmentData.set(shipment);
 	}
 
-	// Hande the amount entry
+	/**
+	 * Function for handleling the entering of a actual count of products
+	 * @param artnr The product that beeing changed
+	 */
 	function handleEnter(artnr) {
 		if (currentObject.actual != null) {
 			dualOverlay = true;
