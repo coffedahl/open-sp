@@ -39,9 +39,13 @@
 	function handleButton() {
 		// Find object where article number is and set current object
 		if (input != undefined && input != '') {
-			currentObject = shipment.find((e) => e.artnr == input);
+			if (shipment.find((e) => e.artnr == input)){
+				currentObject = shipment.find((e) => e.artnr == input);
+			}else{
+				alert('Product dont exsist')
+			}
 		} else {
-			alert('cannot be empty');
+			alert('Cannot be empty');
 		}
 		//reset input
 		input = '';
@@ -160,10 +164,12 @@
 	.overlay button {
 		background-color: #1975bc;
 	}
-	.overlay h1,h2,p{
+	.overlay h1,
+	h2,
+	p {
 		margin-top: 1vh;
 	}
-	.current{
+	.current {
 		margin-top: -3vh;
 	}
 	.row {
