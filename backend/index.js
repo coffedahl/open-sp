@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 /**
- * Default route for GET tests
+ * Default route for GET all runs
  */
 app.get("/", (req, res) => {
     handler.getAll().then((response) => {
@@ -27,16 +27,25 @@ app.post("/api/test", (req, res) => {
     console.log("Data recived: " + data)
 })
 
-app.post("/api/pricerun", (req, res) => {
+/**
+ * Adding a new run to the db
+ */
+app.post("/api/addrun", (req, res) => {
     let data = req.body
-    let item = handler.addRun(data.storenumber)
-    res.send(JSON.stringify({ newItem: item }))
+    handler.addRun(data.storenumber, data.runtype)
+    res.send(JSON.stringify(data))
 })
 
+/**
+ * Deleteing all runs from db
+ */
 app.post("/api/delete", (req, res) => {
     let data = req.body;
-    handler.delete()
-    res.send(JSON.stringify({ message: "Data has been deleted" }))
+    if (data.passphrase == "kjellochco") {
+        handler.delete()
+        res.send(JSON.stringify({ message: "Data has been deleted" }))
+    } else
+        res.send(JSON.stringify({ message: "Invalid auth" }));
 })
 
 /**
