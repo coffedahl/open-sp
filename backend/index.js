@@ -39,6 +39,26 @@ app.post("/api/addrun", (req, res) => {
 });
 
 /**
+ * Returning all shipment runs
+ */
+app.get("/api/get/shipment", (req, res) => {
+  let data = req.body;
+  handler.getShipment().then((response) => {
+    res.send(JSON.stringify(response));
+  });
+});
+
+/**
+ * Returning all price runs
+ */
+app.get("/api/get/price", (req, res) => {
+  let data = req.body;
+  handler.getPrice().then((response) => {
+    res.send(JSON.stringify(response));
+  });
+});
+
+/**
  * Deleteing all runs from db
  */
 app.post("/api/delete", (req, res) => {
