@@ -35,6 +35,13 @@
 		orders.splice(0, 1);
 		// Store data
 		shipmentData.set(orders);
+		fetch('http://localhost:8080/api/addrun', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ storenumber: 'NO016', runtype: 'shipment' })
+		});
 	}
 </script>
 
