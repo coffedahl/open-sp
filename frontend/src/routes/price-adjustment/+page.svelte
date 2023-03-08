@@ -75,6 +75,18 @@
 		string_list.push(new_string.slice(0, -1));
 		//Update interface
 		string_list = string_list;
+		// Add run to db
+		fetch('http://localhost:8080/api/addrun', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ storenumber: 'NO016', runtype: 'price' })
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			});
 	}
 	function handleKeydown(e) {
 		if (e.key == 'Enter') {
