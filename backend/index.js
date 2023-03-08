@@ -24,6 +24,11 @@ app.post("/api/test", (req, res) => {
     console.log("Data recived: " + data)
 })
 
+app.post("/api/pricerun", (req,res)=>{
+    let data = req.body
+    
+})
+
 /**
  * Start the application
  */
