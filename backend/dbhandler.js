@@ -26,6 +26,9 @@ module.exports = {
     let data = await db.query("SELECT * FROM run;");
     return data[0];
   },
+  /**
+   * Function for getting all runs in priceadjustment
+   */
   getPrice: async function () {
     await db.signin({
       user: "root",
@@ -35,6 +38,7 @@ module.exports = {
     let data = await db.query("SELECT * FROM run WHERE type = 'price';");
     return data[0];
   },
+  //Function for getting all runs made in shipment
   getShipment: async function () {
     await db.signin({
       user: "root",
