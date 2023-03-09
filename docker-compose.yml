@@ -1,0 +1,23 @@
+version: '2'
+networks:
+  open-sp:
+services:
+  frontend:
+    container_name: open-sp_frontend
+    build: ./frontend
+    networks:
+      - open-sp
+  backend:
+    container_name: open-sp_backend
+    build: ./backend
+    networks:
+      - open-sp
+  db:
+    image: surrealdb/surrealdb:latest
+    container_name: open-sp_database
+    restart: always
+    command: start --user root --pass root file:/data/database.db
+    ports:
+      - 8000:8000
+    volumes:
+      - ./data:/data
