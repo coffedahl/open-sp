@@ -1,23 +1,29 @@
 version: '2'
 networks:
   open-sp:
+    ipam:
+      config:
+        - subnet: 172.15.0.0/16
 services:
   frontend:
     container_name: open-sp_frontend
     build: ./frontend
     networks:
-      - open-sp
+      open-sp:
+        ipv4_adress: 172.15.0.2
   backend:
     container_name: open-sp_backend
     build: ./backend
     networks:
-      - open-sp
+      open-sp:
+        ipv4_adress: 172.15.0.3
   db:
     image: surrealdb/surrealdb:latest
     container_name: open-sp_database
     restart: always
     command: start --user root --pass root file:/data/database.db
-    ports:
-      - 8000:8000
+    networks:
+      open-sp:
+        ipv4_adress: 172.15.0.4
     volumes:
-      - ./data:/data
+      - ./path/to/data:/data
