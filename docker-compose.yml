@@ -1,29 +1,38 @@
-version: '2'
+version: "2"
 networks:
   open-sp:
+    driver: bridge
     ipam:
+      driver: default
       config:
-        - subnet: 172.15.0.0/16
+        - subnet: 10.5.0.0/24
+          gateway: 10.5.0.1
 services:
   frontend:
     container_name: open-sp_frontend
     build: ./frontend
+    ports:
+      - 3000:3000
     networks:
       open-sp:
-        ipv4_adress: 172.15.0.2
+        ipv4_address: 10.5.0.5
   backend:
     container_name: open-sp_backend
     build: ./backend
+    ports:
+      - 8080:8080
     networks:
       open-sp:
-        ipv4_adress: 172.15.0.3
+        ipv4_address: 10.5.0.6
   db:
     image: surrealdb/surrealdb:latest
     container_name: open-sp_database
     restart: always
     command: start --user root --pass root file:/data/database.db
+    ports:
+      - 8000:8000
     networks:
       open-sp:
-        ipv4_adress: 172.15.0.4
+        ipv4_address: 10.5.0.7
     volumes:
       - ./path/to/data:/data
