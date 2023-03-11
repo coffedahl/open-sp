@@ -76,7 +76,7 @@
 		//Update interface
 		string_list = string_list;
 		// Add run to db
-		fetch('http://localhost:8080/api/addrun', {
+		fetch('https://api.coffedahl.com/api/addrun', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

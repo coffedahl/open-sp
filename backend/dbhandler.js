@@ -1,6 +1,6 @@
 // Import SurrealDB
 const Surreal = require("surrealdb.js").default;
-const db = new Surreal("http://10.5.0.7:8000/rpc");
+const db = new Surreal("http://15.20.0.52:8000/rpc");
 // Functions accesable from the outside
 module.exports = {
   // Function for adding a run to the db
