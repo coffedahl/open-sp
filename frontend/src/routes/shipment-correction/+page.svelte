@@ -44,7 +44,7 @@
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ storenumber: store, runtype: 'shipment' })
+			body: JSON.stringify({ storenumber: "store:" + store, runtype: 'shipment' })
 		});
 	}
 </script>

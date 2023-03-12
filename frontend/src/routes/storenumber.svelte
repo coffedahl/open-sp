@@ -1,9 +1,9 @@
 <script>
 	import { storeNumber } from '../stores';
 	let sn;
-    
+
 	function handleClick() {
-		storeNumber.set(sn);
+		storeNumber.set(sn.toUpperCase());
 	}
 	function handleEnter(e) {
 		if (e.key == 'Enter') {

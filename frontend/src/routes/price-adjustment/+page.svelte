@@ -87,7 +87,7 @@
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ storenumber: store, runtype: 'price' })
+			body: JSON.stringify({ storenumber: 'store:' + store, runtype: 'price' })
 		})
 			.then((res) => res.json())
 			.then((data) => {
