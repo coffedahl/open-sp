@@ -3,11 +3,15 @@
 	import { goto } from '$app/navigation';
 	import { callFocus } from '../../global';
 	// Stores
-	import { shipmentData } from '../../stores';
+	import { shipmentData, storeNumber } from '../../stores';
 	// Variables
 	let input = '';
 	let lines = [];
 	let orders = [];
+	let store;
+	storeNumber.subscribe((val) => {
+		store = val;
+	});
 	// Check if data alread exists and route on depending on value
 	shipmentData.subscribe((value) => {
 		if (value.length != 0) {
@@ -40,7 +44,7 @@
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ storenumber: 'NO016', runtype: 'shipment' })
+			body: JSON.stringify({ storenumber: store, runtype: 'shipment' })
 		});
 	}
 </script>

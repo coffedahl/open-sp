@@ -3,6 +3,12 @@
 	import StringItem from '../string_item.svelte';
 	import { callFocus } from '../../global';
 
+	import { storeNumber } from '../../stores';
+	let store;
+	storeNumber.subscribe((val) => {
+		store = val;
+	});
+
 	let attack_clones = false;
 	// Create variables
 	var string_list = [];
@@ -81,7 +87,7 @@
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ storenumber: 'NO016', runtype: 'price' })
+			body: JSON.stringify({ storenumber: store, runtype: 'price' })
 		})
 			.then((res) => res.json())
 			.then((data) => {

@@ -1,3 +1,11 @@
+<script>
+	import { storeNumber } from '../stores';
+	let store;
+	storeNumber.subscribe((val) => {
+		store = val;
+	});
+</script>
+
 <header>
 	<div class="title center">
 		<div class="nav-container">
@@ -20,7 +28,16 @@
 		</div>
 	</div>
 	<div class="deco">
-		<a href="https://www.github.com/coffedahl/kjell-delim">
+		<a
+			on:click={() => {
+				storeNumber.set(null);
+			}}
+			class="deco-item"
+		>
+			<i class="fas fa-store" />
+			<p>{store}</p>
+		</a>
+		<a href="https://www.github.com/coffedahl/kjell-delim" class="deco-item">
 			<i class="fab fa-github" />
 			<p>Github</p>
 		</a>
@@ -91,10 +108,13 @@
 		background-color: #f5f5f5;
 		padding-right: 10vw;
 	}
-	.deco a {
+	.deco-item {
 		display: flex;
 		align-items: center;
+		padding-left: 1vw;
 		color: #767676;
+	}
+	.deco a {
 		text-decoration: none;
 	}
 	.deco p {

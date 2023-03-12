@@ -1,4 +1,20 @@
+<script>
+	import { storeNumber } from '../stores';
+	import Storenumber from './storenumber.svelte';
+	let storeNumberPopup = false;
+	storeNumber.subscribe((val) => {
+		if (val == null) {
+			storeNumberPopup = true;
+		} else {
+			storeNumberPopup = false;
+		}
+	});
+</script>
+
 <div class="main center column">
+	{#if storeNumberPopup}
+		<Storenumber />
+	{/if}
 	<h1>Start</h1>
 	<a href="/price-adjustment"
 		><button class="center"
