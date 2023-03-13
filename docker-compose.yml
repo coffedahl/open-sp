@@ -10,7 +10,7 @@ networks:
 services:
   frontend:
     container_name: open-sp_frontend
-    build: ./frontend
+    image: coffedahl/open_sp:frontend
     ports:
       - 3000:3000
     networks:
@@ -18,7 +18,7 @@ services:
         ipv4_address: 10.5.0.5
   backend:
     container_name: open-sp_backend
-    build: ./backend
+    image: coffedahl/open_sp:backend
     ports:
       - 8080:8080
     networks:
