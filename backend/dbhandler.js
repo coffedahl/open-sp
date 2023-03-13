@@ -2,7 +2,7 @@
 const Surreal = require("surrealdb.js").default;
 let url;
 if (process.env.NODE_ENV === 'development') {
-  url = 'http://10.5.0.7:8000'
+  url = 'http://localhost:8000'
 } else {
   url = 'http://15.20.0.52:8000'
 }
