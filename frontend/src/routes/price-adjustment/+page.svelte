@@ -1,7 +1,7 @@
 <script>
 	// Import components
 	import StringItem from '../string_item.svelte';
-	import { callFocus } from '../../global';
+	import { callFocus, getURL } from '../../global';
 
 	import { storeNumber } from '../../stores';
 	let store;
@@ -82,7 +82,7 @@
 		//Update interface
 		string_list = string_list;
 		// Add run to db
-		fetch('https://api.coffedahl.com/api/addrun', {
+		fetch(getURL() + '/api/addrun', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

@@ -1,7 +1,7 @@
 <script>
 	// Imports
 	import { goto } from '$app/navigation';
-	import { callFocus } from '../../global';
+	import { callFocus, getURL } from '../../global';
 	// Stores
 	import { shipmentData, storeNumber } from '../../stores';
 	// Variables
@@ -39,12 +39,12 @@
 		orders.splice(0, 1);
 		// Store data
 		shipmentData.set(orders);
-		fetch('https://api.coffedahl.com/api/addrun', {
+		fetch(getURL() + '/api/addrun', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ storenumber: "store:" + store, runtype: 'shipment' })
+			body: JSON.stringify({ storenumber: 'store:' + store, runtype: 'shipment' })
 		});
 	}
 </script>
