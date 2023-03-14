@@ -24,6 +24,33 @@ module.exports = {
       type: runtype,
     });
   },
+  // Function that checks if product exisists
+  checkProduct: async function (artnr) {
+    await db.signin({
+      user: "root",
+      pass: "root"
+    })
+    await db.use('test', 'test');
+    let data = await db.query('SELECT id FROM product WHERE id  = $id;', { id: 'store:' + String(artnr) })
+    if (data[0].length == 1) {
+      return true
+    } else {
+      return false
+    }
+  },
+  // Function for createing new products
+  createProduct: async function (object) {
+    await db.signin({
+      user: "root",
+      pass: "root"
+    })
+    await db.use('test', 'test');
+    let created = await db.create('store:' + String(object.artnr), {
+      name: object.namn,
+      description: object.beskrivning,
+      sku: []
+    })
+  },
   // Function for getting all the runs from db
   getAll: async function () {
     await db.signin({

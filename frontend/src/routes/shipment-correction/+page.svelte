@@ -46,6 +46,13 @@
 			},
 			body: JSON.stringify({ storenumber: 'store:' + store, runtype: 'shipment' })
 		});
+		fetch(getURL() + '/api/product/create-list', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ orders })
+		});
 	}
 </script>
 

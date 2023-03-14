@@ -28,7 +28,19 @@ app.post("/api/test", (req, res) => {
   res.send("Data recived: " + JSON.stringify(data));
   console.log("Data recived: " + data);
 });
-
+/**
+ * Route for createing new products
+ */
+app.post("/api/product/create-list", (req, res) => {
+  let data = req.body;
+  let createdProducts = [];
+  data.list.forEach(element => {
+    if (!handler.checkProduct(element.artnr)) {
+      handler.createProduct(element)
+      createdProducts.push(element)
+    }
+  });
+})
 /**
  * Adding a new run to the db
  */
